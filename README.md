@@ -46,8 +46,8 @@ chmod +x install.sh
 | 항목 | 예시 데이터 |
 |------|--------------|
 | **사용자** | `test1@example.com`, `test2@example.com`, `test3@example.com` <br> (비밀번호: `1234`) |
-| **시험** | `Sample Test 1`, `Sample Test 2`, `Sample Test 3` |
-| **수업** | `Sample Course 1`, `Sample Course 2`, `Sample Course 3` |
+| **시험** | `진행 중 시험`, `시작 전 시험`, `종료된 시험` (각각 3개) |
+| **수업** | `진행 중 수업`, `시작 전 수업`, `종료된 수업` (각각 3개) |
 | **결제** | 사용자별 자동 생성 (시험/수업 1건씩) |
 
 ---
