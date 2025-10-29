@@ -41,6 +41,14 @@ chmod +x install.sh
 
 ---
 
+## API 문서
+| 항목 | 주소 |
+|------|------|
+| **Swagger 문서** | [http://localhost:8000/docs/swagger](http://localhost:8000/docs/swagger) |
+| **ReDoc 문서** | [http://localhost:8000/docs/redoc](http://localhost:8000/docs/redoc) |
+
+---
+
 ## 초기 데이터 (Seed)
 
 | 항목 | 예시 데이터 |
