@@ -19,14 +19,14 @@
 
 ## 실행 방법
 
-### 1 프로젝트 클론
+### 1. 프로젝트 클론
 
 ```bash
 git clone https://github.com/dhdlswhd34/task_project.git
 cd task_project
 ```
 
-### 2 설치 및 실행
+### 2. 설치 및 실행
 
 ```bash
 chmod +x install.sh
@@ -38,6 +38,17 @@ chmod +x install.sh
 > - Docker 이미지 새로 빌드  
 > - Django 마이그레이션 실행  
 > - Seed 데이터 자동 로드 (기본 사용자, 시험, 수업, 결제 생성)
+
+### 실행 및 제거
+```bash
+# 실행
+chmod +x start.sh
+./install.sh
+
+# 삭제
+chmod +x uninstall.sh
+./uninstall.sh
+```
 
 ---
 
