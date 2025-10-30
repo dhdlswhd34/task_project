@@ -3,7 +3,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
 from django.db import transaction
-from django.db.models import Count
+from django.db.models import Exists, OuterRef
 from django.utils import timezone
 from django.shortcuts import get_object_or_404
 
@@ -20,19 +20,25 @@ class TestListView(generics.ListAPIView):
 
     def get_queryset(self):
         now = timezone.now()
-        qs = Test.objects.annotate(
-            registration_count=Count("registrations")
-        ).order_by("-id")
-        status_param = self.request.query_params.get("status")
-        if status_param == "available":
-            qs = qs.filter(start_at__lte=now, end_at__gte=now)
 
+        applied_subquery = TestRegistration.objects.filter(
+            user=self.request.user, test=OuterRef("pk")
+        )
+        queryset = Test.objects.annotate(applied=Exists(applied_subquery))
+
+        # 필터링
+        status = self.request.query_params.get("status")
+        if status == "available":
+            queryset = queryset.filter(start_at__lte=now, end_at__gte=now)
+
+        # 정렬
         sort = self.request.query_params.get("sort", "created")
         if sort == "popular":
-            qs = qs.order_by("-registration_count", "-id")
-        elif sort == "created":
-            qs = qs.order_by("-reg_date", "-id")
-        return qs
+            queryset = queryset.order_by("-reg_count", "-id")
+        else:
+            queryset = queryset.order_by("-reg_date")
+
+        return queryset
 
 
 # 시험 응시 신청
