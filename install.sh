@@ -18,3 +18,4 @@ docker compose exec -T web python manage.py shell < seed.py
 
 echo "완료!"
 echo "Swagger 문서: http://localhost:8000/api/docs/swagger/"
+echo "ReDoc 문서: http://localhost:8000/docs/redoc"
