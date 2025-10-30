@@ -17,6 +17,15 @@
 
 ---
 
+## 필수 환경
+| 항목                    | 권장 버전                          | 최소 요구 버전  | 비고                                           |
+| --------------------- | ------------------------------ | --------- | -------------------------------------------- |
+| **Docker**         | 25.0.0 이상                      | 24.0.0 이상 | 컨테이너 기반 실행 환경                                |
+| **Docker Compose** | v2.27 이상 (`docker compose` 명령) | v2.0 이상   | `docker-compose`(하이픈) 대신 `docker compose` 권장 |
+| **Python**         | 3.12                           | 3.10 이상   | Django 개발 환경 및 로컬 테스트 시 사용                   |
+
+---
+
 ## 실행 방법
 
 ### 1. 프로젝트 클론
@@ -30,7 +39,7 @@ cd task_project
 
 ```bash
 chmod +x install.sh
-./install.sh
+sudo ./install.sh
 ```
 
 > **install.sh** 스크립트는 다음을 자동으로 수행합니다:
@@ -43,11 +52,11 @@ chmod +x install.sh
 ```bash
 # 실행
 chmod +x start.sh
-./install.sh
+sudo ./install.sh
 
 # 삭제
 chmod +x uninstall.sh
-./uninstall.sh
+sudo ./uninstall.sh
 ```
 
 ---
